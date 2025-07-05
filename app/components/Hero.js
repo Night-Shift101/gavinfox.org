@@ -188,6 +188,21 @@ export default function Hero() {
     return () => clearTimeout(timeoutId)
   }, [currentCode])
 
+  // Auto-scroll effect when content overflows
+  useEffect(() => {
+    const ideBody = document.querySelector('.ide-body')
+    if (ideBody && displayedText) {
+      const isAtMaxHeight = ideBody.scrollHeight > ideBody.clientHeight
+      
+      if (isAtMaxHeight) {
+        ideBody.classList.add('has-overflow')
+        ideBody.scrollTop = ideBody.scrollHeight
+      } else {
+        ideBody.classList.remove('has-overflow')
+      }
+    }
+  }, [displayedText])
+
   const highlightCode = (code) => {
     return code.split(/(\b(?:import|export|from|const|let|var|function|async|await|if|else|try|catch|return|interface|class|extends|implements|package|struct|type|def|public|private|protected|SELECT|FROM|WHERE|INSERT|UPDATE|DELETE|CREATE|TABLE|INDEX|PRIMARY|KEY|FOREIGN|REFERENCES|VARCHAR|INTEGER|SERIAL|TIMESTAMP|DEFAULT|CURRENT_TIMESTAMP|LEFT|JOIN|GROUP|BY|COUNT|app|Flask|jsonify|request|cursor|execute|fetchall|CORS)\b|'[^']*'|"[^"]*"|`[^`]*`|\/\*[\s\S]*?\*\/|\/\/.*|#.*|--.*|[{}[\]().,;:=<>!&|+\-*/%$@])/g).map((part, i) => {
       if (/\b(?:import|export|from|const|let|var|function|async|await|if|else|try|catch|return|interface|class|extends|implements|package|struct|type|def|public|private|protected|SELECT|FROM|WHERE|INSERT|UPDATE|DELETE|CREATE|TABLE|INDEX|PRIMARY|KEY|FOREIGN|REFERENCES|VARCHAR|INTEGER|SERIAL|TIMESTAMP|DEFAULT|CURRENT_TIMESTAMP|LEFT|JOIN|GROUP|BY|COUNT|app|Flask|jsonify|request|cursor|execute|fetchall|CORS)\b/i.test(part)) {

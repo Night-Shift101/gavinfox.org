@@ -15,6 +15,20 @@
   /* Touch optimization */
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  /* Ensure centering within hero */
+  z-index: 10;
+}
+
+.ide-window::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+  pointer-events: none;
 }
 
 .ide-header {
@@ -28,17 +42,17 @@
 
 .window-controls {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .control {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   cursor: pointer;
   /* Touch optimization */
-  min-width: 24px;
-  min-height: 24px;
+  min-width: 20px;
+  min-height: 20px;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
@@ -122,9 +136,14 @@
   background: #0d1117;
   min-height: 400px;
   max-height: 60vh;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: row;
+  /* Mobile scrolling optimization */
+  -webkit-overflow-scrolling: touch;
+  /* Auto-scroll behavior */
+  scroll-behavior: smooth;
 }
 
 .line-numbers {
@@ -138,6 +157,12 @@
   min-width: 40px;
   text-align: right;
   user-select: none;
+  /* Ensure alignment with code */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Remove overflow to allow scrolling with parent */
+  flex-shrink: 0;
 }
 
 .line-number-gutter {
@@ -146,6 +171,9 @@
   align-items: center;
   justify-content: flex-end;
   padding-right: 8px;
+  /* Ensure consistent line height */
+  line-height: 1.6;
+  font-size: inherit;
 }
 
 .code-editor {
@@ -155,14 +183,13 @@
   font-size: 0.85rem;
   line-height: 1.6;
   color: #f0f6fc;
-  overflow-y: auto;
-  overflow-x: auto;
+  overflow: visible;
   text-align: left;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* Mobile scrolling optimization */
-  -webkit-overflow-scrolling: touch;
+  /* Ensure alignment with line numbers */
+  justify-content: flex-start;
 }
 
 .code-content {
@@ -174,11 +201,34 @@
   width: 100%;
   display: block;
   line-height: 1.6;
+  /* Auto-scroll support */
+  min-height: 100%;
+  /* Ensure line alignment */
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .code-content span {
   font-family: inherit;
   line-height: inherit;
+}
+
+/* Auto-scroll indicator for when content overflows */
+.ide-body.auto-scrolling::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(transparent, rgba(13, 17, 23, 0.8));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ide-body.has-overflow::after {
+  opacity: 1;
 }
 
 .cursor {
@@ -305,13 +355,31 @@
     max-height: 75vh;
   }
   
+  .window-controls {
+    gap: 5px;
+  }
+  
+  .control {
+    width: 9px;
+    height: 9px;
+    min-width: 18px;
+    min-height: 18px;
+  }
+  
   .code-editor {
     font-size: 0.8rem;
+    line-height: 1.6;
   }
   
   .line-numbers {
     font-size: 0.8rem;
+    line-height: 1.6;
     min-width: 35px;
+  }
+  
+  .line-number-gutter {
+    height: 1.6em;
+    line-height: 1.6;
   }
 }
 
@@ -322,10 +390,11 @@
     min-width: 320px;
     max-height: 80vh;
     border-radius: 8px;
-    top: 10px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    position: fixed;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 10;
   }
   
   .ide-header {
@@ -334,16 +403,16 @@
   }
   
   .window-controls {
-    gap: 4px;
+    gap: 3px;
     align-items: center;
     justify-content: center;
   }
   
   .control {
-    width: 8px;
-    height: 8px;
-    min-width: 8px;
-    min-height: 8px;
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
+    min-height: 6px;
   }
   
   .tab {
@@ -366,16 +435,20 @@
   .line-numbers {
     padding: 12px 6px;
     font-size: 0.75rem;
+    line-height: 1.6;
     min-width: 30px;
   }
   
   .line-number-gutter {
     padding-right: 6px;
+    height: 1.6em;
+    line-height: 1.6;
   }
   
   .code-editor {
     padding: 12px 12px 12px 6px;
     font-size: 0.75rem;
+    line-height: 1.6;
   }
 }
 
@@ -386,10 +459,12 @@
     min-width: 280px;
     max-height: 85vh;
     border-radius: 6px;
-    margin: 5px;
-    top: 5px;
+    margin: 0;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 10;
   }
   
   .ide-header {
@@ -403,7 +478,7 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 2px;
   }
   
   .ide-tabs {
@@ -441,11 +516,14 @@
   .line-numbers {
     padding: 8px 4px;
     font-size: 0.7rem;
+    line-height: 1.5;
     min-width: 25px;
   }
   
   .line-number-gutter {
     padding-right: 4px;
+    height: 1.5em;
+    line-height: 1.5;
   }
   
   .code-editor {
@@ -464,15 +542,16 @@
 /* Extra small devices */
 @media (max-width: 360px) {
   .ide-window {
-    width: 100vw;
-    min-width: 100vw;
-    max-height: 90vh;
-    border-radius: 0;
+    width: 95vw;
+    min-width: 95vw;
+    max-height: 85vh;
+    border-radius: 4px;
     margin: 0;
-    top: 0;
-    left: 0;
-    transform: none;
-    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 10;
   }
   
   .ide-header {
@@ -481,16 +560,16 @@
   }
   
   .window-controls {
-    gap: 2px;
+    gap: 1px;
     align-items: center;
     justify-content: center;
   }
   
   .control {
-    width: 6px;
-    height: 6px;
-    min-width: 6px;
-    min-height: 6px;
+    width: 4px;
+    height: 4px;
+    min-width: 4px;
+    min-height: 4px;
   }
   
   .tab {
@@ -512,11 +591,13 @@
   .line-numbers {
     padding: 6px 2px;
     font-size: 0.65rem;
+    line-height: 1.5;
     min-width: 20px;
   }
   
   .code-editor {
     padding: 6px 6px 6px 2px;
     font-size: 0.65rem;
+    line-height: 1.5;
   }
 }
