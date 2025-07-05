@@ -246,7 +246,7 @@ export default function Hero() {
       </div>
       <div className="hero-content">
         <h1 className="hero-title">Gavin Fox</h1>
-        <p className="hero-subtitle">aka "NightShift101"</p>
+        <p className="hero-subtitle">aka &quot;NightShift101&quot;</p>
         <p className="hero-description">Web and Software developer</p>
       </div>
     </section>
