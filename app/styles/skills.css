@@ -1,0 +1,139 @@
+.about {
+  background: #f8fafc;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.skill-item {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.skill-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  will-change: transform;
+  transition: transform 0.6s ease;
+}
+
+.skill-item:hover::before {
+  transform: translate3d(200%, 0, 0);
+}
+
+.skill-item:hover {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.skill-name {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.skill-bar {
+  background: rgba(226, 232, 240, 0.3);
+  height: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  position: relative;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    transparent 50%, 
+    rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0.6;
+}
+
+.skill-progress {
+  background: linear-gradient(135deg, 
+    #2563eb 0%, 
+    #3b82f6 25%, 
+    #60a5fa 50%, 
+    #93c5fd 75%, 
+    #dbeafe 100%);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.skill-progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 50%, 
+    transparent 100%);
+  will-change: transform;
+  animation: progressGlow 4s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+  0%, 100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  50% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.skill-level {
+  text-align: right;
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
+}

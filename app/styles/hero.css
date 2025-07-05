@@ -1,0 +1,146 @@
+.hero {
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.hero-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #0f172a;
+  z-index: 1;
+}
+
+.hero-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+    rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.95) 4%,
+    rgba(20, 30, 50, 0.90) 4%, rgba(20, 30, 50, 0.90) 8%,
+    rgba(25, 37, 58, 0.85) 8%, rgba(25, 37, 58, 0.85) 12%,
+    rgba(30, 44, 66, 0.80) 12%, rgba(30, 44, 66, 0.80) 16%,
+    rgba(35, 51, 74, 0.75) 16%, rgba(35, 51, 74, 0.75) 20%,
+    rgba(40, 58, 82, 0.70) 20%, rgba(40, 58, 82, 0.70) 24%,
+    rgba(45, 65, 90, 0.65) 24%, rgba(45, 65, 90, 0.65) 28%,
+    rgba(50, 72, 98, 0.60) 28%, rgba(50, 72, 98, 0.60) 32%,
+    rgba(55, 79, 106, 0.55) 32%, rgba(55, 79, 106, 0.55) 36%,
+    rgba(60, 86, 114, 0.50) 36%, rgba(60, 86, 114, 0.50) 40%,
+    rgba(65, 93, 122, 0.45) 40%, rgba(65, 93, 122, 0.45) 44%,
+    rgba(70, 100, 130, 0.40) 44%, rgba(70, 100, 130, 0.40) 48%,
+    rgba(75, 107, 138, 0.35) 48%, rgba(75, 107, 138, 0.35) 52%,
+    rgba(80, 114, 146, 0.30) 52%, rgba(80, 114, 146, 0.30) 56%,
+    rgba(85, 121, 154, 0.25) 56%, rgba(85, 121, 154, 0.25) 60%,
+    rgba(90, 128, 162, 0.20) 60%, rgba(90, 128, 162, 0.20) 64%,
+    rgba(95, 135, 170, 0.15) 64%, rgba(95, 135, 170, 0.15) 68%,
+    rgba(100, 142, 178, 0.10) 68%, rgba(100, 142, 178, 0.10) 72%,
+    rgba(105, 149, 186, 0.08) 72%, rgba(105, 149, 186, 0.08) 76%,
+    rgba(110, 156, 194, 0.06) 76%, rgba(110, 156, 194, 0.06) 80%,
+    rgba(115, 163, 202, 0.04) 80%, rgba(115, 163, 202, 0.04) 84%,
+    rgba(120, 170, 210, 0.03) 84%, rgba(120, 170, 210, 0.03) 88%,
+    rgba(125, 177, 218, 0.02) 88%, rgba(125, 177, 218, 0.02) 92%,
+    rgba(130, 184, 226, 0.01) 92%, rgba(130, 184, 226, 0.01) 96%,
+    rgba(135, 191, 234, 0.005) 96%, rgba(135, 191, 234, 0.005) 100%);
+  transform: rotate(-15deg);
+  animation: rectangleShift 20s ease-in-out infinite;
+}
+
+@keyframes rectangleShift {
+  0%, 100% {
+    transform: rotate(-15deg) translateX(0) translateY(0);
+  }
+  25% {
+    transform: rotate(-15deg) translateX(-2px) translateY(1px);
+  }
+  50% {
+    transform: rotate(-15deg) translateX(1px) translateY(-2px);
+  }
+  75% {
+    transform: rotate(-15deg) translateX(-1px) translateY(2px);
+  }
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: -20px;
+  background: linear-gradient(45deg, 
+    #fff 0%, 
+    #e0e7ff 25%, 
+    #c7d2fe 50%, 
+    #a5b4fc 75%, 
+    #fff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+  color: #e0e7ff;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  color: #c7d2fe;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100svh;
+    min-height: 100svh;
+  }
+  
+  .hero-background {
+    height: 100svh;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+}

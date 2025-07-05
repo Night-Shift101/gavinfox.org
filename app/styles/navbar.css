@@ -1,0 +1,125 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1000;
+  transition: all 0.2s ease;
+  padding: 15px 0;
+  will-change: background, backdrop-filter;
+}
+
+.navbar * {
+  transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  transform: translateZ(0);
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo span {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #2563eb, #7c3aed, #db2777);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-menu button {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.navbar.light .nav-menu button {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar.dark .nav-menu button {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar.auto .nav-menu button {
+  color: #333;
+}
+
+.nav-menu button:hover {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.05);
+  transform: translateY(-1px);
+}
+
+.navbar.light .nav-menu button:hover {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.15);
+}
+
+.navbar.dark .nav-menu button:hover {
+  color: #1d4ed8;
+  background: rgba(29, 78, 216, 0.1);
+}
+
+.nav-menu button.active {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.navbar.light .nav-menu button.active {
+  color: #93c5fd;
+  background: rgba(147, 197, 253, 0.2);
+}
+
+.navbar.dark .nav-menu button.active {
+  color: #1e40af;
+  background: rgba(30, 64, 175, 0.15);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 0;
+  }
+  
+  .nav-menu {
+    gap: 15px;
+  }
+  
+  .nav-menu button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-menu {
+    gap: 10px;
+  }
+}

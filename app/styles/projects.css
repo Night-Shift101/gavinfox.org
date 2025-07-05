@@ -1,0 +1,200 @@
+.projects {
+  background: #f8fafc;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  perspective: 1000px;
+}
+
+.project-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  padding: 35px;
+  border-radius: 25px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(37, 99, 235, 0.1) 60deg,
+    rgba(139, 69, 19, 0.1) 120deg,
+    rgba(16, 185, 129, 0.1) 180deg,
+    rgba(236, 72, 153, 0.1) 240deg,
+    rgba(249, 115, 22, 0.1) 300deg,
+    transparent 360deg
+  );
+  will-change: transform;
+  animation: cardRotate 15s linear infinite;
+  z-index: -1;
+}
+
+@keyframes cardRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  z-index: -1;
+}
+
+.project-card:hover {
+  transform: translate3d(0, -5px, 0);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.project-card:hover::before {
+  animation-duration: 8s;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #1e293b, #3730a3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.project-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  transition: width 0.4s ease;
+}
+
+.project-card:hover h3::after {
+  width: 100%;
+}
+
+.project-card p {
+  color: #475569;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.tech-tag {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  color: #3730a3;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(55, 48, 163, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(55, 48, 163, 0.1), 
+    transparent);
+  will-change: transform;
+  transition: transform 0.5s ease;
+}
+
+.tech-tag:hover::before {
+  transform: translate3d(200%, 0, 0);
+}
+
+.tech-tag:hover {
+  transform: translate3d(0, -2px, 0) scale3d(1.05, 1.05, 1);
+  background: rgba(55, 48, 163, 0.1);
+  box-shadow: 0 5px 15px rgba(55, 48, 163, 0.3);
+  color: #1e1b4b;
+}
+
+.project-links {
+  display: flex;
+  gap: 20px;
+}
+
+.project-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  overflow: hidden;
+}
+
+.project-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(37, 99, 235, 0.1), 
+    rgba(37, 99, 235, 0.2));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.project-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.project-link:hover {
+  color: #1d4ed8;
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.1);
+}
