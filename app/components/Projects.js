@@ -9,7 +9,7 @@ export default function Projects() {
     {
       title: 'Solider Signout System',
       description: 'A real-time signout system for military personnel using Express.JS and SQLite. Built for the US Army Cyber Center of Excellence.',
-      technologies: ['React', 'Socket.io', 'Node.js', 'Express', 'PostgreSQL'],
+      technologies: ['React', 'Node.js', 'Express', 'SQLite'],
       github: 'https://github.com/Night-Shift101/SoliderSignoutSystemJS'
     },
     {
