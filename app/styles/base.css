@@ -2,6 +2,9 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  /* Touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .navbar,
@@ -15,6 +18,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
 }
 
 body {
@@ -24,12 +29,18 @@ body {
   background: var(--bg-gradient);
   background-attachment: fixed;
   min-height: 100vh;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+  /* Mobile scrolling optimization */
+  -webkit-overflow-scrolling: touch;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  /* Mobile responsive container */
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -66,4 +77,57 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #1d4ed8, #6d28d9);
+}
+
+/* Mobile optimizations */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  body {
+    font-size: 15px;
+    background-attachment: scroll;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 8px;
+    max-width: 100%;
+  }
+  
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 4px;
+  }
+  
+  body {
+    font-size: 13px;
+  }
 }

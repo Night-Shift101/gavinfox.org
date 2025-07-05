@@ -58,6 +58,11 @@
   position: relative;
   padding: 8px 16px;
   border-radius: 12px;
+  /* Touch optimization */
+  min-height: 44px;
+  min-width: 44px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .navbar.light .nav-menu button {
@@ -103,23 +108,120 @@
   background: rgba(30, 64, 175, 0.15);
 }
 
-@media (max-width: 768px) {
+/* Tablet styles */
+@media (max-width: 1024px) {
   .navbar {
-    padding: 12px 0;
+    padding: 10px 0;
+  }
+  
+  .nav-container {
+    padding: 0 16px;
+  }
+  
+  .nav-logo span {
+    font-size: 22px;
   }
   
   .nav-menu {
-    gap: 15px;
+    gap: 20px;
+  }
+  
+  .nav-menu button {
+    font-size: 15px;
+    padding: 7px 14px;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 8px 0;
+    position: fixed;
+    backdrop-filter: blur(10px);
+  }
+  
+  .nav-container {
+    padding: 0 12px;
+  }
+  
+  .nav-logo span {
+    font-size: 20px;
+  }
+  
+  .nav-menu {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .nav-menu button {
     padding: 6px 12px;
     font-size: 14px;
+    border-radius: 8px;
+    min-height: 40px;
+    min-width: 40px;
   }
 }
 
+/* Mobile portrait */
 @media (max-width: 480px) {
+  .navbar {
+    padding: 6px 0;
+  }
+  
+  .nav-container {
+    padding: 0 8px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .nav-logo span {
+    font-size: 18px;
+  }
+  
   .nav-menu {
-    gap: 10px;
+    gap: 8px;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .nav-menu button {
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    min-height: 36px;
+    min-width: 36px;
+    flex: 1;
+    max-width: 80px;
+    text-align: center;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .navbar {
+    padding: 4px 0;
+  }
+  
+  .nav-container {
+    padding: 0 4px;
+    gap: 6px;
+  }
+  
+  .nav-logo span {
+    font-size: 16px;
+  }
+  
+  .nav-menu {
+    gap: 4px;
+  }
+  
+  .nav-menu button {
+    padding: 4px 8px;
+    font-size: 12px;
+    min-height: 32px;
+    min-width: 32px;
+    max-width: 70px;
   }
 }

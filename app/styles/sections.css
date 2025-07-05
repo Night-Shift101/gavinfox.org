@@ -95,3 +95,160 @@ h2::after {
     width: 80px;
   }
 }
+
+/* Mobile optimizations */
+/* Tablet styles */
+@media (max-width: 1024px) {
+  section {
+    padding: 60px 0;
+    margin: 30px 0;
+  }
+  
+  section:not(.hero) {
+    margin: 30px 16px;
+    border-radius: 25px;
+  }
+  
+  section::before {
+    border-radius: 25px;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+  
+  h2::after {
+    width: 50px;
+    bottom: -8px;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+  section {
+    padding: 50px 0;
+    margin: 25px 0;
+  }
+  
+  section:not(.hero) {
+    margin: 25px 12px;
+    border-radius: 20px;
+    /* Touch optimization */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  section:not(.hero):hover {
+    transform: translate3d(0, -2px, 0);
+  }
+  
+  section::before {
+    border-radius: 20px;
+    padding: 1.5px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 35px;
+    line-height: 1.2;
+  }
+  
+  h2::after {
+    width: 45px;
+    height: 2.5px;
+    bottom: -6px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  section {
+    padding: 40px 0;
+    margin: 20px 0;
+  }
+  
+  section:not(.hero) {
+    margin: 20px 8px;
+    border-radius: 16px;
+  }
+  
+  section:not(.hero):hover {
+    transform: translate3d(0, -1px, 0);
+  }
+  
+  section::before {
+    border-radius: 16px;
+    padding: 1px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    padding: 0 16px;
+  }
+  
+  h2::after {
+    width: 40px;
+    height: 2px;
+    bottom: -5px;
+  }
+  
+  @keyframes headerFloat {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -1px, 0);
+    }
+  }
+  
+  @keyframes underlineExpand {
+    0%, 100% {
+      width: 40px;
+    }
+    50% {
+      width: 55px;
+    }
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  section {
+    padding: 30px 0;
+    margin: 16px 0;
+  }
+  
+  section:not(.hero) {
+    margin: 16px 4px;
+    border-radius: 12px;
+  }
+  
+  section::before {
+    border-radius: 12px;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    line-height: 1;
+    padding: 0 12px;
+  }
+  
+  h2::after {
+    width: 35px;
+    height: 1.5px;
+    bottom: -4px;
+  }
+  
+  @keyframes underlineExpand {
+    0%, 100% {
+      width: 35px;
+    }
+    50% {
+      width: 45px;
+    }
+  }
+}

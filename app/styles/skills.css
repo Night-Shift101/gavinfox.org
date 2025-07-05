@@ -137,3 +137,143 @@
   color: #475569;
   font-weight: 500;
 }
+
+/* Mobile optimizations */
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .about-content {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  .skill-item {
+    padding: 22px;
+    border-radius: 18px;
+  }
+  
+  .skill-name {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+  .about-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 12px;
+  }
+  
+  .about-content p {
+    margin-bottom: 16px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 0 12px;
+  }
+  
+  .skill-item {
+    padding: 20px;
+    border-radius: 16px;
+    /* Touch optimization */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  .skill-item:hover {
+    transform: translateY(-2px) rotateX(2deg);
+  }
+  
+  .skill-name {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+  
+  .skill-level {
+    font-size: 13px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .about-content {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 8px;
+  }
+  
+  .about-content p {
+    margin-bottom: 14px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 0 8px;
+  }
+  
+  .skill-item {
+    padding: 18px;
+    border-radius: 12px;
+  }
+  
+  .skill-item:hover {
+    transform: translateY(-1px);
+  }
+  
+  .skill-name {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .skill-progress-container {
+    margin-bottom: 8px;
+  }
+  
+  .skill-level {
+    font-size: 12px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .about-content {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0 4px;
+  }
+  
+  .about-content p {
+    margin-bottom: 12px;
+  }
+  
+  .skills-grid {
+    gap: 14px;
+    margin: 0 4px;
+  }
+  
+  .skill-item {
+    padding: 16px;
+    border-radius: 10px;
+  }
+  
+  .skill-name {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+  
+  .skill-progress-container {
+    margin-bottom: 6px;
+  }
+  
+  .skill-level {
+    font-size: 11px;
+  }
+}
