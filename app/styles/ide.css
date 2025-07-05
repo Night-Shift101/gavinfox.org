@@ -334,12 +334,16 @@
   }
   
   .window-controls {
-    gap: 6px;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
   }
   
   .control {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
   }
   
   .tab {
@@ -397,6 +401,9 @@
   .window-controls {
     order: 2;
     flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
   }
   
   .ide-tabs {
@@ -470,6 +477,20 @@
   
   .ide-header {
     padding: 3px 6px;
+    align-items: center;
+  }
+  
+  .window-controls {
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .control {
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
+    min-height: 6px;
   }
   
   .tab {
