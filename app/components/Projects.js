@@ -1,25 +1,22 @@
 export default function Projects() {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution built with Next.js and Node.js',
-      technologies: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
-      github: '#',
-      demo: '#'
+      title: 'Discord Auto-Mod and Role Bot',
+      description: 'A Discord bot for managing roles and moderating chats. Built for the Atlas Networks Discord server.',
+      technologies: ['Discord.js', 'Node.js'],
+      github: 'https://github.com/Night-Shift101/AtlasNetworks-DiscordSentinal'
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates',
-      technologies: ['React', 'Socket.io', 'Express', 'PostgreSQL'],
-      github: '#',
-      demo: '#'
+      title: 'Solider Signout System',
+      description: 'A real-time signout system for military personnel using Express.JS and SQLite. Built for the US Army Cyber Center of Excellence.',
+      technologies: ['React', 'Socket.io', 'Node.js', 'Express', 'PostgreSQL'],
+      github: 'https://github.com/Night-Shift101/SoliderSignoutSystemJS'
     },
     {
-      title: 'Weather Dashboard',
-      description: 'A responsive weather dashboard with location-based forecasts',
-      technologies: ['JavaScript', 'CSS3', 'Weather API'],
-      github: '#',
-      demo: '#'
+      title: 'Procedural Maze Generator',
+      description: 'A tool for generating detailed mazes for video games.',
+      technologies: ['Python', 'Tkinter', 'Pillow'],
+      github: 'https://github.com/Night-Shift101/Python-MazeRaceGame'
     }
   ]
 
@@ -39,7 +36,6 @@ export default function Projects() {
               </div>
               <div className="project-links">
                 <a href={project.github} className="project-link">GitHub</a>
-                <a href={project.demo} className="project-link">Live Demo</a>
               </div>
             </div>
           ))}
