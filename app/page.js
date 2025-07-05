@@ -1,7 +1,19 @@
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import About from './components/About'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
+import Contact from './components/Contact'
+
 export default function Home() {
   return (
-    <div>
-      <h1>Welcome to Gavin Fox&apos;s Portfolio</h1>
-    </div>
+    <main>
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+    </main>
   );
 }
