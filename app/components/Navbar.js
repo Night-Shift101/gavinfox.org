@@ -62,7 +62,7 @@ export default function Navbar() {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${textColor}`}>
       <div className="nav-container">
         <div className="nav-logo">
-          <span>GF</span>
+          <img src="/assets/logo.png" alt="Gavin Fox Logo" className="logo-image" />
         </div>
         <ul className="nav-menu">
           <li><button 

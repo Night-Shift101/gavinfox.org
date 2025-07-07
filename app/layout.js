@@ -11,7 +11,10 @@ import './styles/scroll-buttons.css'
 
 export const metadata = {
   title: 'Gavin Fox Portfolio',
-  description: 'Personal portfolio website'
+  description: 'Personal portfolio website',
+  icons: {
+    icon: '/assets/favicon.ico',
+  },
 }
 
 export default function RootLayout({ children }) {

@@ -29,23 +29,39 @@
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
+  position: relative;
 }
 
-.nav-logo span {
-  font-size: 24px;
-  font-weight: bold;
-  background: linear-gradient(135deg, #2563eb, #7c3aed, #db2777);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.nav-logo {
+  position: absolute;
+  left: 2%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.nav-logo .logo-image {
+  height: 48px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.nav-logo .logo-image:hover {
+  transform: scale(1.05);
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
   gap: 30px;
+  width: 100%;
+  justify-content: space-between;
+  max-width: 550px;
+  margin-right: 2%;
 }
 
 .nav-menu button {
@@ -116,14 +132,23 @@
   
   .nav-container {
     padding: 0 16px;
+    flex-direction: column;
+    gap: 12px;
   }
   
-  .nav-logo span {
-    font-size: 22px;
+  .nav-logo {
+    position: static;
+    transform: none;
+  }
+  
+  .nav-logo .logo-image {
+    height: 40px;
   }
   
   .nav-menu {
     gap: 20px;
+    justify-content: center;
+    max-width: none;
   }
   
   .nav-menu button {
@@ -142,16 +167,24 @@
   
   .nav-container {
     padding: 0 12px;
+    flex-direction: column;
+    gap: 10px;
   }
   
-  .nav-logo span {
-    font-size: 20px;
+  .nav-logo {
+    position: static;
+    transform: none;
+  }
+  
+  .nav-logo .logo-image {
+    height: 36px;
   }
   
   .nav-menu {
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: none;
   }
   
   .nav-menu button {
@@ -175,8 +208,13 @@
     gap: 8px;
   }
   
-  .nav-logo span {
-    font-size: 18px;
+  .nav-logo {
+    position: static;
+    transform: none;
+  }
+  
+  .nav-logo .logo-image {
+    height: 32px;
   }
   
   .nav-menu {
@@ -184,6 +222,7 @@
     width: 100%;
     justify-content: space-around;
     flex-wrap: wrap;
+    max-width: none;
   }
   
   .nav-menu button {
@@ -206,15 +245,22 @@
   
   .nav-container {
     padding: 0 4px;
+    flex-direction: column;
     gap: 6px;
   }
   
-  .nav-logo span {
-    font-size: 16px;
+  .nav-logo {
+    position: static;
+    transform: none;
+  }
+  
+  .nav-logo .logo-image {
+    height: 28px;
   }
   
   .nav-menu {
     gap: 4px;
+    max-width: none;
   }
   
   .nav-menu button {
