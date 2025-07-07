@@ -4,13 +4,6 @@ Personal portfolio website built with Next.js.
 
 🌐 **Live Site:** [gavinfox.org](https://gavinfox.org)
 
-## Quick Start
-
-```bash
-npm install
-npm run dev
-```
-
 ## Tech Stack
 
 - **Framework:** Next.js 15
