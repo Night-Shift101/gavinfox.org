@@ -9,7 +9,7 @@ export default function ScrollButtons() {
   
   const scrollY = useThrottledScroll(16)
   const { entries, observeElement } = useIntersectionObserver()
-  const sections = useMemo(() => ['home', 'about', 'skills', 'projects', 'contact'], [])
+  const sections = useMemo(() => ['home', 'about', 'skills', 'projects', 'github', 'contact'], [])
 
   useEffect(() => {
     setIsVisible(scrollY > 300)

@@ -11,7 +11,7 @@ export default function Navbar() {
   const scrollY = useThrottledScroll(16)
   const { entries, observeElement } = useIntersectionObserver()
 
-  const sections = useMemo(() => ['home', 'about', 'skills', 'projects', 'contact'], [])
+  const sections = useMemo(() => ['home', 'about', 'skills', 'projects', 'github', 'contact'], [])
 
   useEffect(() => {
     setIsScrolled(scrollY > 50)
@@ -45,6 +45,8 @@ export default function Navbar() {
       setTextColor('dark')
     } else if (entries.get('projects')) {
       setTextColor('dark')
+    } else if (entries.get('github')) {
+      setTextColor('dark')
     } else if (entries.get('contact')) {
       setTextColor('dark')
     } else {
@@ -77,6 +79,9 @@ export default function Navbar() {
           <li><button 
             className={activeSection === 'projects' ? 'active' : ''} 
             onClick={() => scrollToSection('projects')}>Projects</button></li>
+          <li><button 
+            className={activeSection === 'github' ? 'active' : ''} 
+            onClick={() => scrollToSection('github')}>GitHub</button></li>
           <li><button 
             className={activeSection === 'contact' ? 'active' : ''} 
             onClick={() => scrollToSection('contact')}>Contact</button></li>

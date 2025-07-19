@@ -6,6 +6,7 @@ import './styles/ide.css'
 import './styles/sections.css'
 import './styles/skills.css'
 import './styles/projects.css'
+import './styles/github.css'
 import './styles/contact.css'
 import './styles/scroll-buttons.css'
 
