@@ -164,7 +164,7 @@ export default function GitHub() {
                     {repo.commits.map((commit) => (
                       <li key={commit.sha} className="commit-item">
                         <div className="commit-info">
-                          <code className="commit-sha">{commit.sha}</code>
+                          <code className="commit-sha"><a href={`https://github.com/Night-Shift101/${repo.name}/commit/${commit.sha}`} target="_blank" rel="noopener noreferrer">{commit.sha}</a></code>
                           <span className="commit-message">
                             {formatCommitMessage(commit.message)}
                           </span>

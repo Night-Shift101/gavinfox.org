@@ -68,6 +68,7 @@ export default async function getGitData() {
                 
                 return {
                   sha: commit.sha.substring(0, 7),
+                  fullHash: commit.sha,
                   message: commit.commit.message.split('\n')[0], // First line only
                   date: commit.commit.committer.date,
                   author: commit.commit.author.name,
@@ -77,6 +78,7 @@ export default async function getGitData() {
                 console.error(`Error fetching stats for commit ${commit.sha}:`, statsError);
                 return {
                   sha: commit.sha.substring(0, 7),
+                  fullHash: commit.sha,
                   message: commit.commit.message.split('\n')[0],
                   date: commit.commit.committer.date,
                   author: commit.commit.author.name,
@@ -93,8 +95,6 @@ export default async function getGitData() {
             html_url: repo.html_url,
             language: repo.language,
             updated_at: repo.updated_at,
-            stargazers_count: repo.stargazers_count,
-            forks_count: repo.forks_count,
             commits: commitsWithStats
           };
         } catch (commitError) {
