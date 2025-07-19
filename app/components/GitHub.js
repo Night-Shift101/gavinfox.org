@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-
+import getGitData from '../github/route'
 /**
  * GitHub section component - Displays recent repositories and commits
  * @returns {JSX.Element} GitHub section with repositories and commits
@@ -25,7 +25,7 @@ export default function GitHub() {
       setLoading(true);
       setError(null);
 
-      const response = await fetch('/api/github');
+      const response = await getGitData();
       const result = await response.json();
 
       if (!result.success) {

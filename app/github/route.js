@@ -2,7 +2,7 @@
  * GitHub API route - Fetches recent repositories and commits
  * @returns {Response} JSON response with GitHub data
  */
-export async function GET() {
+export default async function getGitData() {
   try {
     const username = 'Night-Shift101'; // Your GitHub username
     
