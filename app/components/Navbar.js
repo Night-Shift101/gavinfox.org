@@ -86,6 +86,29 @@ export default function Navbar() {
             className={activeSection === 'contact' ? 'active' : ''} 
             onClick={() => scrollToSection('contact')}>Contact</button></li>
         </ul>
+        <div className="nav-stats">
+          <a 
+            href="/statistics" 
+            className="stats-link"
+            aria-label="View GitHub Statistics"
+            title="GitHub Statistics"
+          >
+            <svg 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2"
+              className="stats-icon"
+            >
+              <path d="M3 3v18h18"/>
+              <path d="M7 12l4-4 4 4 4-4"/>
+              <circle cx="7" cy="12" r="1"/>
+              <circle cx="11" cy="8" r="1"/>
+              <circle cx="15" cy="12" r="1"/>
+              <circle cx="19" cy="8" r="1"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </nav>
   )
